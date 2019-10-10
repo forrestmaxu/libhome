@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>首页</title>
+    <link href={{url_for('static',filename='css/bootstrap.css')}} rel='stylesheet' type='text/css'/>
+    <link href={{url_for('static',filename='css/style.css')}} rel='stylesheet' type='text/css'/>
+    <link href={{url_for('static',filename='css/cust.css')}} rel='stylesheet' type='text/css'/>
+    <script src="{{url_for('static',filename='js/jquery.min.js')}}"></script>
+    <!-- <script src="{{url_for('static',filename='js/myjs.js')}}"></script> -->
+   
+    <script >
+        $(function() {
+            $('#getdata').click(function () {
+                
+                $.ajax({
+                    url: "http://127.0.0.1:5000/listsubject",
+                    type: 'post',
+                    success: function (data) {
+                        $('#sub_content').html(data)
+                    }
+                })                
+                // window.location.href="listsubject";
+            })
+
+            $('#search').click(function () {
+                var searchkey=$("#searchkey").val()
+                console.log('111')
+                data={"searchkey":searchkey}
+                console.log(searchkey)
+                $.ajax({
+                    url: "http://127.0.0.1:5000/listsubBykey",
+                    type: 'post',
+                    data:data,
+                    success: function (data) {
+                        $('#sub_content').html(data)
+                    }
+                })                
+                // window.location.href="listsubject";
+            })
+           
+        });
+    </script>
+</head>
+<body class="body-content">
+        {% include 'head.html' %}
+        {% include 'search.html' %}
+        <!-- {% include 'search_detail.html' %}
+        <div class="button-list" id="button_div">
+               
+        </div> -->
+        <div id="sub_content" ></div>
+
+</body>
+</html>
+
+
+

@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>法条编辑</title>
+    <link href="{{url_for('static',filename='css/bootstrap.css')}}" rel="stylesheet">
+    <link href="{{url_for('static',filename='css/style.css')}}" rel='stylesheet' type='text/css'/>
+    <link href="{{url_for('static',filename='css/cust.css')}}" rel='stylesheet' type='text/css'/>
+    <script src="{{url_for('static',filename='js/jquery.min.js')}}"></script>
+    <script src="{{url_for('static',filename='js/myjs.js')}}"></script>
+    <!-- <script src="{{url_for('static',filename='js/autoload.js')}}"></script> -->
+
+    <script type="text/javascript">
+        $(document).ready(function(){
+            $.ajax({
+            url: "http://127.0.0.1:5000/listflagByKey",
+            type: 'post',
+            // data: data,
+            success: function (data) {
+               
+                var res=JSON.parse(data)
+                console.log(res)
+              
+            }
+
+        })
+        })
+
+    </script>
+
+
+</head>
+<body>
+        {% include 'head.html' %}
+    <div class="container body-content">
+        <div class="flag"></div>
+
+        <div> <h1  class="text-center">{{desc[0].title}}</h1></div>
+        
+        {% for row in data %}
+            <div class="row">
+
+                <div class="col-md-10">
+                        
+                        <p>
+                            {{row.content}}   
+                            <label  class="editlawtext btn  text"  data-id= {{row.lawid}}+{{row.id}}>编辑法条</label >                                
+                        </p>
+                        
+                        {% if row.isedit!='0'  %}
+                        <div >                 
+                            <p>
+                                <label id="flagcontent">标签名称:</label> 
+                                
+                                <span  class="text-primary">{{row.flag or ""}}</span>
+                               
+                                <label class="editflag btn text" data-id= {{row.lawid}}+{{row.id}}>修改</label>
+                            </p>
+                            <p>
+                                <label>法条状态：</label>  <span >{{row.state or ""}}</span>
+                                <label class="editstate btn text" data-id= {{row.lawid}}+{{row.id}}>修改</label>
+                            </p>
+                            <p >
+                                <!-- {{row.notes}} -->
+                                <label> 相关法条:</label>   <label class="editrel btn text" data-id= {{row.lawid}}+{{row.id}} >添加</label> 
+                                {% for item in row.relation %}
+                                <p>
+                                    <label>{{loop.index}}</label>
+                                    <span>{{item.content or ""}}</span>
+                                    <span>{{item.desc or ""}} </span>
+                                    <span>({{item.author or ""}}- </span>
+                                    <span>{{item.edittime or ""}} )</span>
+                                    <label class="editlawnote btn text" >修改</label>
+                                   
+                                </p>
+                                {% endfor %}
+
+                            </p>
+                            <p>
+                                <label>注解:</label> 
+                                <p>
+                                    <label>1.</label>
+                                    <span>注解内容</span>
+                                    <span>创建者</span>
+                                    <span>创建时间</span>
+                                    <label class="editlawnote btn text" >修改</label>
+                                </p>
+                                <p>
+                                    <label>2.</label>
+                                    <span>注解内容</span>
+                                    <span>创建者</span>
+                                    <span>创建时间</span>
+                                    <label class="editlawnote btn text" >修改</label>
+                                </p>
+                            </p>
+                            <p>
+                                <label for="">相关案例</label> :
+                                <p>
+                                    <label>1.</label>
+                                    <span>案例标题</span>
+                                    <label class="editlawnote btn text" >修改</label>
+                                </p>
+                                <p>
+                                    <label>2.</label>
+                                    <span>案例标题</span>
+                                    <label class="editlawnote btn text" >修改</label>
+                                </p>
+                            </p>
+                        </div>
+                    {% endif %}
+                </div>
+
+            </div>
+            <hr style="border:1 solid #987cb9" width="80%" color=#987cb9 SIZE=1>
+            
+        {% endfor %}
+    </div>
+        
+    {% include 'dialog.html' %}    
+
+   
+
+    
+        
+</body>
+</html>
+ <!-- <link href={{url_for('static',filename='css/bootstrap.css')}} rel='stylesheet' type='text/css'/> -->
+ 
+ 
+
+
+
+
+
+    
+
+
+  
+

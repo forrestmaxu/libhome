@@ -1,0 +1,199 @@
+<div id="editlawdialog"  class="modal-dialog" style="display:none">
+    <div class="modal-content">
+        <!-- <div class="modal-header">
+            <h4 class="modal-title">
+                编辑法条
+            </h4>
+        </div> -->
+        <div class="modal-body">
+            <p>
+                <label>显示编辑信息：</label>
+               
+            </p>
+            <p>
+                <input name="isedit" type="radio" value="0" checked/>否 
+                
+            </p>
+            <p>
+                <input name="isedit" type="radio" value="1" />是
+            </p>
+          
+        </div>
+        <div class="modal-footer">
+            <button id="cancel" type="button" class="btn btn-default" 
+                data-dismiss="modal">关闭
+            </button>
+            <button id="ok" type="button" data-id=""  class="btn btn-primary">
+                提交更改
+            </button>
+        </div>
+    </div>
+</div>
+    
+
+<div id="statedialog"  class="modal-dialog" style="display:none">
+    <div class="modal-content">
+        <div class="modal-body">
+            <p>
+                <label>修改法条状态</label>       
+            </p>
+            <p>
+                <input name="state" type="radio" value="生效中" checked/>生效中 
+                
+            </p>
+            <p>
+                <input name="state" type="radio" value="修正" />修正
+            </p>
+            <p>
+                <input name="state" type="radio" value="失效" />失效
+            </p>
+            
+        </div>
+        <div class="modal-footer">
+            <button id="cancel-state" type="button" class="btn btn-default" 
+                data-dismiss="modal">关闭
+            </button>
+            <button id="ok-state" type="button" data-id=""  class="btn btn-primary">
+                提交更改
+            </button>
+        </div>
+    </div>
+</div>
+
+ 
+    
+<div id="flagdialog"  class="modal-dialog dialog" style="display:none">
+    <div class="modal-content">
+        <div class="modal-header">
+            <h4 class="modal-title">
+                <label>修改标签</label>
+            </h4>
+        </div>
+        <div class="modal-body">
+
+            <p id="flag-body">
+                <!-- <label><input name="flag" type="checkbox" value="" />标签1 </label>  -->
+          
+            </p>
+          
+            
+        </div>
+        <div class="modal-footer">
+            <button id="cancel-flag" type="button" class="btn btn-default" 
+                data-dismiss="modal">关闭
+            </button>
+            <button id="ok-flag" type="button" data-id=""  class="btn btn-primary">
+                提交更改
+            </button>
+        </div>
+    </div>
+</div>
+
+<div id="rellawdialog"  class="modal-dialog dialog" style="display:none">
+    <div class="modal-content">
+        <!-- <div class="modal-header">
+            <h4 class="modal-title">
+                建立关系
+            </h4>
+        </div> -->
+        
+        <div class="modal-body">
+            <p>
+                <label>搜索相关法条:</label>
+                <input name="titlekey" type="text" placeholder="输入标题关键字" />   
+                      
+            </p>
+            <p>
+                <label>搜索相关法条编号:</label>
+                <input type="text" name="textid" placeholder="第xx条">    
+               
+            </p>
+            <p>
+                <label>搜索相关法条条款号:</label>
+                <input type="text" name="textchild_no" placeholder="输入数字" value=0>   
+            </p>
+            <p>
+                    <label>选择类别:</label>
+                    <input name="lawtype" type="radio" value="法律" checked/>法律  
+                    <input name="lawtype" type="radio" value="修正" />修正
+                    <input name="lawtype" type="radio" value="司法解释" />司法解释
+                    <button id="search-title">查询</button>
+            </p>
+            <div id="search-result" style="display:none">
+                <div id="lawcontent-info">
+                    <table class="table table-bordered">
+                        <thead>
+                            <tr>
+                                <th>id</th>
+                                <th>标题</th>
+                                <th>编号</th>
+                                <th>选择</th>
+                            </tr>
+                            <tbody id="serach_content">
+                                
+                            </tbody>
+                        </thead>
+                    </table>
+                </div>
+                
+                <div id="rel_case">
+                    <p>
+                        <label for="">关系描述</label>
+                        <input type="text">
+                    </p>
+                    <p>
+                        <label for="">审核人</label>
+                        <input type="text" name="" id="" value="xxx" >
+                    </p>
+                   <p>
+                        <label for="">创建者:</label>
+                        <label for="">当前登录人</label>
+                   </p>                         
+                </div>
+            </div>
+
+            
+        </div>
+        <div id="search-footer" class="modal-footer" style="display:none">
+            <button id="cancel-rel" type="button" class="btn btn-default" 
+                data-dismiss="modal">关闭
+            </button>
+            <button id="ok-rel" type="button"  class="btn btn-primary">
+                提交更改
+            </button>
+        </div>
+    </div>
+</div>
+
+<div id="rellawnote"  class="modal-dialog" style="display:none">
+    <div class="modal-content">
+        <div class="modal-header">
+            <h4 class="modal-title">
+                添加注解：
+            </h4>
+        </div>
+        <div class="modal-body">
+            <p>
+                <label for="注解内容："></label>
+                <textarea name="" id="" cols="30" rows="10"></textarea>
+            </p>
+            <p>
+                <label for="">创建者</label>
+                <input type="text">
+            </p>
+            <p>
+                <label for="">审核人</label>
+                <label for="">张思锐</label>
+            </p>
+            
+        </div>
+        <div class="modal-footer">
+            <button id="note_cancel" type="button" class="btn btn-default" 
+                data-dismiss="modal">关闭
+            </button>
+            <button id="note_ok" type="button"  class="btn btn-primary">
+                提交更改
+            </button>
+        </div>
+    </div>
+</div>

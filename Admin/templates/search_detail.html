@@ -1,0 +1,90 @@
+<script src="{{url_for('static',filename='js/index.js')}}"></script>
+
+<div>
+    <br>
+    <div class="container">
+        <label for="">搜素内容</label>
+    </div>
+    <div class="container">
+        <table class="table table-bordered">
+            <thead>
+                <tr>
+                    <th  class="col-md-0.5" >编号</th>
+                    <th  class="col-md-2">标题</th>
+                    <th  class="col-md-2">颁布单位</th>
+                    <th  class="col-md-1.5">文号</th>
+                    <th  class="col-md-1">发布时间</th>
+                    <th  class="col-md-1">实施日期</th>                    
+                    <th  class="col-md-1">时效性</th>
+                    <th  class="col-md-0.5">类别</th>
+                    <th  class="col-md-0.5">编辑人</th>
+                    <th  class="col-md-1">编辑</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for row in data %}
+                    <tr >
+                       <td>{{ loop.index}}</td>
+                       <td  ><a class="viewfulltext" href="#" id={{row.lawid}}> {{row.title}}</a></td>
+                       <td>{{row.org}}</td>
+                       <td>{{row.textno or ""}}</td>
+                       <td>{{row.pubdate}}</td>
+                       <td>{{row.impdate}}</td>
+                       <td> 
+                           {{row.imdate}}
+                        </td>
+                       <td>{{row.type}}</td>
+                       <td>{{row.editauthor}}</td>
+                       <td><label class="lawedit" data-lawid={{row.lawid}} style="color:#25C6FC">编辑</label></td>
+                    </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </div>
+
+    <div id="laweditdialog"  class="modal-dialog dialog" style="display:none">
+        <div class="modal-content">
+            <div class="modal-body">
+                <p>
+                    <label>编辑法律文本</label>       
+                </p>
+                <p>
+                    <input name="lawstate" type="radio" value="生效中" checked/>生效中 
+                    
+                </p>
+                <p>
+                    <input name="lawstate" type="radio" value="失效" />失效
+                </p>
+                
+                <p>
+                    <label>编辑文本类别</label>       
+                    <select id="lawtype">
+                        <option value="刑法">刑法</option>
+                        <option value="民法">民法</option>
+                        <option value="商法">商法</option>
+                        <option value="劳动法">劳动法</option>
+                      </select> 
+                    
+                </p>
+                <p>
+              
+                </p>
+               
+    
+            </div>
+            <div class="modal-footer">
+                <button id="cancel-lawstate" type="button" class="btn btn-default" 
+                    data-dismiss="modal">关闭
+                </button>
+                <button id="ok-lawstate" type="button" data-id=""  class="btn btn-primary">
+                    提交更改
+                </button>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+    
+
