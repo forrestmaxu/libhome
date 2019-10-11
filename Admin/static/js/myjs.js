@@ -1,16 +1,5 @@
 $(document).ready(function(){
-    // $("#relLaw").click(function(){
-    //     // alert('aa')
-    //     $("#rellawdialog").css("display","block")
-    // })
 
-    // $("#rellaw_ok").click(function(){
-    //     $("#rellawdialog").css("display","none")
-
-    // })
-    // $("#rellaw_cancel").click(function(){
-    //     $("#rellawdialog").css("display","none")
-    // })
 
     //主对话框
     $(".editlawtext").click(function(){
@@ -219,11 +208,6 @@ $(document).ready(function(){
         $("#rellawdialog").css("display","none");
         $(".body-content").css("background-color","white");
     });
-
-
-    // var tr=$("<tr></tr>");             
-    // tr.html("<td>"+td1+"</td><td>"+td2+"</td>"+"<td><a href='javascript:void(0)'>GET</a></td>");
-    // $("tbody").append(tr);
 
 
 });

@@ -1,5 +1,6 @@
 from flask import Flask,redirect,url_for,request,render_template,Response
-import os,json
+import os
+import json
 from model.MongoTool import MongoTool
 from util import util
 
@@ -18,23 +19,7 @@ root = os.path.join(os.path.dirname(os.path.abspath(__file__)), "html")#html是�
 def index():
     return render_template("index.html")    
 
-# @app.route("/create", methods=["post", ])
-# def create():
-#     print(request.form.get('name'))
-#     # 读取user.json中的原始的数据
-#     with open("user.json", "r") as f:
-#         # 将数据反序列化
-#         data = json.loads(f.read())
 
-#     # 将新数据添加到原始的数据中
-# #     data.append({"name": request.form.get('name')})
-#     # 将此时最新的数据再次写入文件中
-#     with open("user.json", "w") as f:
-#         f.write(json.dumps(data))
-#     # 再次返回最新的数据 响应会前端
-#     resp = Response(json.dumps(data))
-#     resp.headers["Access-Control-Allow-Origin"] = "*"
-#     return resp
 
 @app.route("/listsubject", methods=["post"])
 def listsubject():

@@ -118,7 +118,7 @@ class MongoTool:
             lawids.append(item)
         print("###########")
         print(lawids)
-        lawNo=
+        # lawNo=
         for lawid in lawids:
             self.colname=self.db['lawcontent'] 
             # print(lawid)
